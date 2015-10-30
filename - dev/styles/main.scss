@@ -1,5 +1,12 @@
 @import "compass";
 
+$misc-sprite: sprite-map('misc/*.png', $spacing: 70px, $layout: horizontal);
+
+/* colors */
+
+$black: #333333;
+$orange: #ff6600;
+
 /* --------- normalize --------- */
 
 @import "_misc/normalize";
@@ -8,8 +15,14 @@
 
 @import "_misc/mixins";
 
+/* fonts */
+
+@import "_misc/fonts";
+
 /* --------- adjustment --------- */
 
 @import "_misc/adjustment";
+
+@import "_sections/header";
 
 

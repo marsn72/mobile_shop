@@ -2,10 +2,10 @@ header.header
     .header__top
         .container
             .header__left
-            -var icons = ['fb', 'vk', 'tw']
+                -var icons = ['fb', 'vk', 'tw']
                 ul.socials
                     each icon in icons
-                        li(class="socials__item socials__item-" + icon)
+                        li(class="socials__item socials__item_" + icon)
                             a(href="#").socials__link
                                 .socials__icon
             .header__right
@@ -14,7 +14,7 @@ header.header
     .header__bottom
         .container
             a(href="#").logo
-                img(src="" alt="Cooltech").logo__img
+                img(src="../img/logo.png" alt="Cooltech").logo__img
                 .logo__text Cooltech
             .search
                 form.search__form

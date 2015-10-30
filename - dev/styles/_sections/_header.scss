@@ -1,0 +1,149 @@
+.header {
+    background: #ffffff;
+}
+
+/* header-top */
+
+.header__top {
+    padding: 25px 0;
+    border-bottom: 1px solid #ebedef;
+}
+
+.socials__item {
+    @include inlineblock(middle);
+    margin-left: 12px;
+
+    &:first-child {
+        margin-left: 0;
+    }
+}
+
+.socials__link {
+    display: block;
+    width: 26px;
+    height: 26px;
+    @include border-radius(50%);
+    background: #333333;
+    position: relative;
+}
+
+.socials__icon {
+    @include absolute-center;
+}
+
+$socials: fb, vk, tw;
+$socials-map: sprite-map('icons/*.png', $spacing: 70px);
+
+@each $social in $socials {
+    .socials__item_#{$social} {
+        .socials__icon {
+            @include get-sprite($socials-map, $social);
+        }
+    }
+}
+
+.header__left {
+    width: 50%;
+    float: left;
+}
+
+.header__right {
+    width: 50%;
+    float: right;
+}
+
+.adress {
+    @include inlineblock(middle);
+    margin-right: 65px;
+
+    &:before {
+        content: '';
+        @include get-sprite($misc-sprite, map_tip);
+        @include inlineblock(middle);
+        margin-right: 9px;
+    }
+}
+
+.phone {
+    @include inlineblock(middle);
+    color: $black;
+    text-decoration: none;
+
+    &:before {
+        content: '';
+        @include inlineblock(middle);
+        @include get-sprite($misc-sprite, phone);
+        margin-right: 11px;
+    }
+}
+
+/* header-bottom */
+
+.header__bottom {
+    padding: 29px 0;
+    background: #f4f4f4;
+}
+
+.logo {
+    float: left;
+    margin-left: -3px;
+}
+
+.logo__img {
+    display: block;
+    max-width: 240px;
+}
+
+.logo__text {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+}
+
+.search {
+    float: left;
+    margin-left: 56px;
+    margin-right: 50px;
+}
+
+.menu {
+    float: left;
+    padding-top: 5px;
+}
+
+.menu__link {
+    @include open_sans(semibold);
+    font-size: 16px;
+    color: $black;
+
+    &:hover{
+        color: $orange;
+    }
+}
+
+.menu__item{
+    @include inlineblock(middle);
+    margin-left: 32px;
+
+    &:first-child{
+        margin-left: 0;
+    }
+}
+
+.search__form-input{
+    width: 259px;
+    padding: 8px 15px;
+    margin-right: -7px;
+    border: 1px solid #dee1e4;
+    @include border-radius();
+}
+
+.search__form-submit{
+    width: 78px;
+    height: 36px;
+    background: $orange;
+    color: #ffffff;
+    @include open_sans(semibold);
+    border: 1px solid $orange;
+    @include border-radius(0 5px 5px 0);
+}
