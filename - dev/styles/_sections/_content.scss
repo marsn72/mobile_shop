@@ -1,0 +1,16 @@
+.main-title{
+    margin-bottom: 30px;
+    font-size: 20px;
+    line-height: 20px;
+    @include open_sans(bold);
+    color: $black;
+}
+.main-content{
+    @include clearfix;
+    margin-bottom: 30px;
+}
+
+.content{
+    float: right;
+    width: 743px;
+}

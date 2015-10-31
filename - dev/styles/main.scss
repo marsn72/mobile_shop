@@ -6,6 +6,7 @@ $misc-sprite: sprite-map('misc/*.png', $spacing: 70px, $layout: horizontal);
 
 $black: #333333;
 $orange: #ff6600;
+$grey: #dee1e4;
 
 /* --------- normalize --------- */
 
@@ -23,6 +24,6 @@ $orange: #ff6600;
 
 @import "_misc/adjustment";
 
-@import "_sections/header";
+@import "_sections/**/*";
 
 

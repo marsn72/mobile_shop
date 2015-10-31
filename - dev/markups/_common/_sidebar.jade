@@ -3,9 +3,9 @@
        ul.categories__list
            -var items = ['Флагманы', 'Бюджетная линейка']
                each item in items
-                   li(class="categories__item categories__item_" + ((item == 'Каталог') ? 'active' : ''))
-                        a(href="#").categories__list= item
-    .filter
+                   li(class="categories__item categories__item_" + ((item == 'Бюджетная линейка') ? 'active' : ''))
+                        a(href="#").categories__link= item
+   .filter
         ul.filter__list
             li.filter__item
                 .filter__title
@@ -28,7 +28,7 @@
                         each item in items
                             li.filter-choose-item
                                 label.filter__choose-label
-                                    input(name="local" type="checkbox").filter__choose-checkbox
+                                    input(name="local" type="checkbox").filter__choose-input
                                     .filter__choose-elem
                                     .filter__choose-text= item
                     .filter__reset-wrap
@@ -51,7 +51,7 @@
                     a(href="#").filter__title-link Цвет
                 .filter__content
                     ul.filter__colors
-                        -var colors = ['ffffff', 'cccccc', '000000', '0a3153', 'ff1800', 'fb914a', '92c37c', '40a6ff', '9870ad', 'dc78ad', '7f401d']
+                        -var colors = ['ffffff', 'cccccc', '000000', '0a3153', 'fff343', 'ff1800', 'fb914a', '92c37c', '40a6ff', '9870ad', 'dc78ad', '7f401d']
                         each color in colors
                             li.filter-colors-item
                                 a(href="#" style="background-color: #" + color).filter__colors-link
@@ -64,7 +64,7 @@
                         each item in items
                             li.filter-choose-item
                                 label.filter__choose-label
-                                    input(name="local" type="checkbox").filter__choose-checkbox
+                                    input(name="local" type="checkbox").filter__choose-input
                                     .filter__choose-elem
                                     .filter__choose-text= item
                     .filter__reset-wrap
