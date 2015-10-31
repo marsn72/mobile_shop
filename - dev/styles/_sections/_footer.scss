@@ -1,0 +1,93 @@
+.footer{
+    background: url('../img/footer_ptrn.png') center center;
+    position: relative;
+}
+
+.footer__top{
+    padding-top: 34px;
+}
+
+.footer__left{
+    float: left;
+    width: 45%;
+    padding-top: 34px;
+}
+
+.footer__right{
+    float: left;
+    width: 55%;
+    text-align: center;
+}
+
+.logo__footer{
+    .logo__img{
+        max-width: 255px;
+    }
+}
+
+$icons_footer: sprite-map('icons_footer/*.png', $spacing: 50px);
+
+.socials__footer{
+    margin-bottom: 21px;
+
+    .socials__link{
+        display: block;
+        width: 45px;
+        height: 45px;
+        background: #ffffff;
+    }
+
+    .socials__item{
+        margin-left: 26px;
+    }
+
+    $items: fb, vk, tw;
+
+    @each $item in $items {
+        .socials__item_#{$item}{
+            .socials__link{
+                &:after{
+                    @include get-sprite($icons_footer, $item);
+                    content: '';
+                    @include absolute-center;
+                }
+
+                &:hover{
+                    &:after{
+                        $icon-name: $item + '_hover';
+                        @include get-sprite($icons_footer, $icon-name);
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+.footer__nav-item{
+    @include inlineblock();
+    margin-left: 33px;
+    margin-bottom: 15px;
+}
+
+.footer__nav-link{
+    font-size: 14px;
+    line-height: 16px;
+    color: #ffffff;
+
+    &:hover{
+        text-decoration: none;
+    }
+}
+
+.footer__bottom{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #494949;
+    text-align: center;
+    color: #ffffff;
+    font-size: 12px;
+    line-height: 36px;
+}
