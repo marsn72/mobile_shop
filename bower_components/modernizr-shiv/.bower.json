@@ -1,0 +1,31 @@
+{
+  "name": "modernizr-shiv",
+  "version": "0.0.2",
+  "homepage": "https://github.com/hugobessaa/modernizr-shiv",
+  "authors": [
+    "Hugo Bessa <eu@hugobessa.com.br>"
+  ],
+  "description": "Custom Modernizr build just with HTML5shiv and CSS Classes",
+  "main": "modernizr.min.js",
+  "keywords": [
+    "modernizr",
+    "html5shiv",
+    "html5",
+    "IE",
+    "IE8",
+    "IE7"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*"
+  ],
+  "_release": "0.0.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.2",
+    "commit": "42751267352d9c3c0d8c45c80f96c49c829b7f2c"
+  },
+  "_source": "git://github.com/hugobessaa/modernizr-shiv.git",
+  "_target": "~0.0.2",
+  "_originalSource": "modernizr-shiv"
+}

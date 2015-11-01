@@ -12,6 +12,10 @@ $grey: #dee1e4;
 
 @import "_misc/normalize";
 
+/* --------- adjustment --------- */
+
+@import "_misc/adjustment";
+
 /* --------- mixins --------- */
 
 @import "_misc/mixins";
@@ -20,9 +24,15 @@ $grey: #dee1e4;
 
 @import "_misc/fonts";
 
-/* --------- adjustment --------- */
+/* plugins */
 
-@import "_misc/adjustment";
+@import "_plugins/**/*";
+
+/* widgets */
+
+@import "_widgets/**/*";
+
+/* sections */
 
 @import "_sections/**/*";
 

@@ -1,0 +1,24 @@
+.ui-slider-horizontal{
+    height: 3px;
+    margin-bottom: 14px;
+    background: $grey;
+    @include border-radius(0);
+    border: 0 none;
+
+    *{
+        outline: none !important;
+    }
+
+    .ui-slider-range{
+        background: $orange;
+    }
+
+    .ui-slider-handle{
+        @include get-sprite($misc-sprite, price_tip);
+        top: 0;
+        border: 0 none;
+        @include border-radius(0);
+        margin-left: -4px;
+        cursor: pointer;
+    }
+}
