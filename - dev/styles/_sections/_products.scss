@@ -124,7 +124,12 @@
     margin-bottom: 17px;
 }
 
-.products__option-item, .products__option-value{
+.products__option-item{
+    display: inline;
+    background: transparent;
+}
+
+.products__option-key, .products__option-value{
     display: inline;
     font-size: 14px;
     line-height: 16px;
@@ -219,3 +224,8 @@ $stars-map: sprite-map('stars/*.png', $spacing: 70px);
         @include border-radius(50%);
     }
 }
+
+/* other views */
+
+@import "../_views/grid-vew";
+@import "../_views/line-view";
