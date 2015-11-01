@@ -37,8 +37,66 @@ var SliderWidget = (function(){
 
 })();
 
+var RatingWidget = (function () {
+
+    var _letTheStars = function (ratingAmount) {
+        var starsArray = [];
+
+        for(var i = 1; i <= 5; i++) {
+            var starClassName = (i <= ratingAmount) ? 'products__rating-stars-item products__rating-stars-item_filled' : 'products__rating-stars-item';
+
+            var star = $('<li>', {
+                class: starClassName
+            });
+
+            starsArray.push(star);
+        }
+            return starsArray;
+    };
+
+    var _generateMarkup = function (ratingAmount, elementToAppend) {
+        var ul = $('<ul>', {
+            class: 'products__rating-stars',
+            html: _letTheStars(ratingAmount)
+        });
+        var ratingDisplay = $('<div>', {
+            class: 'products__rating-amount',
+            text: ratingAmount
+        });
+        elementToAppend.append([ul, ratingDisplay]);
+    };
+
+
+
+    return{
+        init: function () {
+            $('.products__rating').each(function () {
+
+                var $this = $(this),
+                    ratingAmount = $this.data('rating');
+                _generateMarkup(ratingAmount, $this);
+            });
+        }
+    }
+
+})();
+
+
 $(document).ready(function () {
+
+    if($('.products__rating').length){
+        RatingWidget.init();
+    } else {
+        alert('Нет данных');
+    }
+
     if($('.filter__slider-element').length){
-       // SliderWidget.init();
+        //SliderWidget.init();
+    }
+
+    if($('.sort__select-elem').length){
+        $('.sort__select-elem').select2({
+
+        });
     }
 });
