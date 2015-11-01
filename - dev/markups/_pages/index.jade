@@ -10,7 +10,79 @@ block content
                 include ../_common/_sidebar
                 .content
                     .sort
+                        .sort__left
+                            .sort__select-wrap
+                                .sort__title Сортировать по
+                                .sort__select
+                                    select.sort__select-elem
+                                        -var options = ['по цене', 'по популярности']
+                                        each option in options
+                                            option(value="")= option
+                        .sort__right
+                            .sort__title Вид каталога
+                                .sort__view
+                                    ul.sort__view-list
+                                        -var items = ['rows', 'grids', 'lines']
+                                        each item in items
+                                            li(class="sort__view-item sort__view_" + item data-view=item)
+                                                a(href="").sort__view-link
+                                                    .sort__view-icon
                     .products
+                        ul.products__list
+                            -for(var i = 1; i <= 9; i++)
+                                li.products__item
+                                    .products__item-inner
+                                        .products__left
+                                            .products__slideshow
+                                                .products__slideshow-block
+                                                    a(href="").products__slideshow-display
+                                                        img(src="/img/phons/phone_" + i + ".png" alt="").products__slideshow-image
+                                                    ul.products__slideshow-thumbs
+                                                        -for(var j = 1; j <= 3; j++)
+                                                            li.products__slideshow-item
+                                                                a(href="").products__slideshow-link
+                                                                    img(src="/img/phons/phone_" + i + "_min_" + j + ".png" alt="").products__slideshow-thumbs-image
+                                                .products__article
+                                                    .products__article-word Артикул
+                                                    .products__article-num 285633
+                                            .products__desc
+                                                .products__desc-title Samsung GT-I9301I GALAXY S 3
+                                                ul.products__desc-options
+                                                    -var options = {"Тип SIM-карт":"Micro-SIM", "Количество SIM-карт":"2", "Цвет": "Белый", "ОС": "Android", "Связь 3G": "есть", "4G(LTE)": "есть", "GPS-модуль": "есть" }
+                                                    each value, key in options
+                                                        li.products__option-item= value
+                                                        li.products__option-value= key
+                                                .products__rating
+                                                    ul.products__rating-stars
+                                                        li.products__rating-stars-item.products__rating-stars-item_filled
+                                                        li.products__rating-stars-item.products__rating-stars-item_filled
+                                                        li.products__rating-stars-item.products__rating-stars-item_filled
+                                                        li.products__rating-stars-item.products__rating-stars-item_filled
+                                                        li.products__rating-stars-item
+                                                    .products__rating-amount 4
+                                        .products__right
+                                            .products__info
+                                                .products__price 17 000
+                                                    i.rub
+                                            .products__info-bottom
+                                                a(href="").products__buy-btn В корзину
+                                                .products__availability В наличии
+                    .pagination
+                        ul.pagination__list
+                            li.pagination__item.pagination__item_prev
+                                a(href="").pagination__link
+                                    .pagination__mark
+                            -for(var i = 1; i < 4; i++)
+                                li.pagination__item
+                                    a(href="").pagination__link
+                                        .pagination__mark= i
+                            li.pagination__item.pagination__item_next
+                                a(href="").pagination__link
+                                    .pagination__mark
+
+
+
+
             .attension
                 .main-title Важная информация
                 .attension__text
