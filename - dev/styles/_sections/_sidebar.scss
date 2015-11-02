@@ -41,6 +41,24 @@
 
 /* filter */
 
+.filter__content{
+    display: none;
+    margin-top: 30px;
+}
+
+.filter__title{
+    position: relative;
+    padding-right: 30px;
+
+    &:after{
+        content: '';
+        @include get-sprite($select-sprite, up);
+        position: absolute;
+        top: 7px;
+        right: 10px;
+    }
+}
+
 .filter__list {
     @extend .categories__list;
 }
@@ -51,6 +69,19 @@
 
     &:first-child{
         border-top: 0 none;
+    }
+
+    &.active{
+        .filter__title{
+
+            &:after{
+                content: '';
+                @include get-sprite($select-sprite, down);
+                position: absolute;
+                top: 7px;
+                right: 10px;
+            }
+        }
     }
 }
 
