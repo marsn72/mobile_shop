@@ -1,6 +1,6 @@
-var SliderWidget = (function(){
+var SliderWidget = (function () {
 
-    var _insertValues = function($this){
+    var _insertValues = function ($this) {
 
         var container = $this.closest('.filter__slider'),
             from = container.find('.filter__slider-input_from'),
@@ -11,7 +11,7 @@ var SliderWidget = (function(){
         to.val(values[1]);
     }
 
-    var init = $(".filter__slider-element").each(function(){
+    var init = $(".filter__slider-element").each(function () {
 
         var $this = $(this),
             min = parseInt($this.data('min')),
@@ -42,7 +42,7 @@ var RatingWidget = (function () {
     var _letTheStars = function (ratingAmount) {
         var starsArray = [];
 
-        for(var i = 1; i <= 5; i++) {
+        for (var i = 1; i <= 5; i++) {
             var starClassName = (i <= ratingAmount) ? 'products__rating-stars-item products__rating-stars-item_filled' : 'products__rating-stars-item';
 
             var star = $('<li>', {
@@ -51,7 +51,7 @@ var RatingWidget = (function () {
 
             starsArray.push(star);
         }
-            return starsArray;
+        return starsArray;
     };
 
     var _generateMarkup = function (ratingAmount, elementToAppend) {
@@ -67,8 +67,7 @@ var RatingWidget = (function () {
     };
 
 
-
-    return{
+    return {
         init: function () {
             $('.products__rating').each(function () {
 
@@ -81,22 +80,72 @@ var RatingWidget = (function () {
 
 })();
 
+var viewStateChange = (function () {
+
+    var _previousClass = '';
+
+    var _changeState = function ($this) {
+
+        var item = $this.closest('.sort__view-item'),
+            view = item.data('view'),
+            listOfItems = $('#products-list'),
+            modificationPrefix = 'products__list_',
+            classOfViewState = modificationPrefix + view;
+
+        if (_previousClass == '') {
+            _previousClass = listOfItems.attr('class');
+        }
+        _changeActiveClass($this);
+        listOfItems.attr('class', _previousClass + ' ' + classOfViewState);
+    };
+
+    var _changeActiveClass = function ($this) {
+        $this.closest('.sort__view-item').addClass('active').siblings().removeClass('active');
+    };
+
+    return {
+        init: function () {
+            $('.sort__view-link').on('click', function (e) {
+                e.preventDefault();
+                _changeState($(this));
+            })
+        }
+    };
+
+})();
+
 
 $(document).ready(function () {
 
-    if($('.products__rating').length){
+    if ($('.products__rating').length) {
         RatingWidget.init();
     } else {
         alert('Нет данных');
     }
 
-    if($('.filter__slider-element').length){
+    if ($('.filter__slider-element').length) {
         //SliderWidget.init();
     }
 
-    if($('.sort__select-elem').length){
+    if ($('.sort__select-elem').length) {
         $('.sort__select-elem').select2({
             minimumResultsForSearch: Infinity
         });
     }
+
+    if ($('.sort__view-link').length) {
+        viewStateChange.init();
+    }
+
+    $('.filter__reset').on('click', function (e) {
+        e.preventDefault();
+
+        var $this = $(this),
+            container = $this.closest('.filter__item'),
+            checkboxes = container.find('input:checkbox');
+
+        checkboxes.each(function () {
+            $(this).removeProp('checked');
+        })
+    });
 });
