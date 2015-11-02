@@ -128,7 +128,6 @@
 
 .filter__choose-input {
     position: absolute;
-    top: 0;
     left: -9999px;
 
     &:checked + .filter__choose-elem {
