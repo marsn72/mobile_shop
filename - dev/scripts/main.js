@@ -188,4 +188,17 @@ $(document).ready(function () {
     $('.attension__text').columnize({
         columns: 2
     });
+
+    /* slider */
+
+    $('.products__slideshow-block li').on('click', (function(e) {
+
+            e.preventDefault();
+
+            _src = $('img', this).attr('src');
+            _obj = $(this).parents('.products__slideshow'); // for default-view
+            $('.products__slideshow-image', _obj).attr('src', _src);
+        })
+    );
+
 });
